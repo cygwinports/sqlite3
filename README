@@ -1,0 +1,144 @@
+sqlite3
+-------------------------------------------
+SQLite is a C library that implements an embeddable SQL database engine.
+Programs that link with the SQLite library can have SQL database access
+without running a separate RDBMS process. The distribution comes with a
+standalone command-line access program (sqlite) that can be used to
+administer an SQLite database and which serves as an example of how to 
+use the SQLite library.
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  libreadline6-5.2.1-6
+  tcl84-8.4.12-1	(for the Tcl bindings only)
+
+Build requirements:
+(besides corresponding devel packages)
+  cygwin-1.5.24-2
+  autoconf2.5-2.61-1
+  binutils-20060817-1
+  cygport-0.2.11-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  libtool1.5-1.5.23a-2
+  make-3.81-1
+  sed-4.1.5-2
+
+Canonical homepage:
+  http://www.sqlite.org/
+
+-------------------------------------------
+
+Build instructions:
+  unpack sqlite3-3.3.12-1-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./sqlite3-3.3.12-1.cygport all
+
+This will create:
+  /usr/src/libsqlite3-devel-3.3.12-1.tar.bz2
+  /usr/src/libsqlite3_0-3.3.12-1.tar.bz2
+  /usr/src/sqlite3-3.3.12-1-src.tar.bz2
+  /usr/src/sqlite3-3.3.12-1.tar.bz2
+  /usr/src/tclsqlite3-3.3.12-1.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/bin/lemon3.exe
+  /usr/bin/sqlite3.exe
+  /usr/share/doc/Cygwin/sqlite3-3.3.12.README
+  /usr/share/doc/sqlite3-3.3.12/README
+  /usr/share/doc/sqlite3-3.3.12/html/arch.html
+  /usr/share/doc/sqlite3-3.3.12/html/arch2.gif
+  /usr/share/doc/sqlite3-3.3.12/html/autoinc.html
+  /usr/share/doc/sqlite3-3.3.12/html/c_interface.html
+  /usr/share/doc/sqlite3-3.3.12/html/capi3.html
+  /usr/share/doc/sqlite3-3.3.12/html/capi3ref.html
+  /usr/share/doc/sqlite3-3.3.12/html/changes.html
+  /usr/share/doc/sqlite3-3.3.12/html/compile.html
+  /usr/share/doc/sqlite3-3.3.12/html/conflict.html
+  /usr/share/doc/sqlite3-3.3.12/html/copyright-release.html
+  /usr/share/doc/sqlite3-3.3.12/html/copyright-release.pdf
+  /usr/share/doc/sqlite3-3.3.12/html/copyright.html
+  /usr/share/doc/sqlite3-3.3.12/html/datatype3.html
+  /usr/share/doc/sqlite3-3.3.12/html/datatypes.html
+  /usr/share/doc/sqlite3-3.3.12/html/docs.html
+  /usr/share/doc/sqlite3-3.3.12/html/download.html
+  /usr/share/doc/sqlite3-3.3.12/html/faq.html
+  /usr/share/doc/sqlite3-3.3.12/html/fileformat.html
+  /usr/share/doc/sqlite3-3.3.12/html/formatchng.html
+  /usr/share/doc/sqlite3-3.3.12/html/index.html
+  /usr/share/doc/sqlite3-3.3.12/html/lang.html
+  /usr/share/doc/sqlite3-3.3.12/html/lemon.html
+  /usr/share/doc/sqlite3-3.3.12/html/lockingv3.html
+  /usr/share/doc/sqlite3-3.3.12/html/mingw.html
+  /usr/share/doc/sqlite3-3.3.12/html/nulls.html
+  /usr/share/doc/sqlite3-3.3.12/html/oldnews.html
+  /usr/share/doc/sqlite3-3.3.12/html/omitted.html
+  /usr/share/doc/sqlite3-3.3.12/html/opcode.html
+  /usr/share/doc/sqlite3-3.3.12/html/pragma.html
+  /usr/share/doc/sqlite3-3.3.12/html/quickstart.html
+  /usr/share/doc/sqlite3-3.3.12/html/speed.html
+  /usr/share/doc/sqlite3-3.3.12/html/sqlite.gif
+  /usr/share/doc/sqlite3-3.3.12/html/sqlite.html
+  /usr/share/doc/sqlite3-3.3.12/html/support.html
+  /usr/share/doc/sqlite3-3.3.12/html/tclsqlite.html
+  /usr/share/doc/sqlite3-3.3.12/html/vdbe.html
+  /usr/share/doc/sqlite3-3.3.12/html/version3.html
+  /usr/share/man/man1/sqlite3.1.gz
+
+Files included in the runtime library package:
+
+  /usr/bin/cygsqlite3-0.dll
+
+Files included in the development package:
+
+  /usr/include/sqlite3.h
+  /usr/lib/libsqlite3.a
+  /usr/lib/libsqlite3.dll.a
+  /usr/lib/libsqlite3.la
+  /usr/lib/pkgconfig/sqlite3.pc
+
+Files included in the Tcl interface package:
+
+  /usr/lib/sqlite3/cygtclsqlite3.dll
+  /usr/lib/sqlite3/pkgIndex.tcl
+
+------------------
+
+Port Notes:
+
+----- version 3.3.12-1 -----
+Version bump.
+
+----- version 3.3.10-1 -----
+Version bump.
+
+----- version 3.3.7-1 -----
+Version bump.  Broke out separate binary packages.
+
+----- version 3.3.5-1 -----
+Version bump.
+
+----- version 3.2.8-1 -----
+Version bump.
+
+----- version 3.2.7-1 -----
+Version bump.
+
+----- version 3.2.6-1 -----
+Version bump.
+
+----- version 3.2.1-1 -----
+Version bump for 3.0 branch.
+
+----- version 3.0.8-1 -----
+Initial release of the 3.0 branch for Cygwin.
+This package can be installed in parallel with sqlite-2.8.x.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
