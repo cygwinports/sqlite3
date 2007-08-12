@@ -1,5 +1,5 @@
 category: Database Interpreters
-requires: cygwin tcl84
+requires: cygwin tcl
 external-source: sqlite
 sdesc: "An embeddable SQL database engine (3.x Tcl interface)"
 ldesc: "SQLite is a C library that implements an embeddable SQL 
