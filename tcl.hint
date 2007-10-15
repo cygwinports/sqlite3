@@ -1,6 +1,6 @@
 category: Database Interpreters
 requires: cygwin tcl
-external-source: sqlite
+external-source: sqlite3
 sdesc: "An embeddable SQL database engine (3.x Tcl interface)"
 ldesc: "SQLite is a C library that implements an embeddable SQL 
 database engine.  Programs that link with the SQLite library can have 
