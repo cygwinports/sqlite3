@@ -9,15 +9,15 @@ use the SQLite library.
 
 Runtime requirements:
   cygwin-1.5.24-2
-  libreadline6-5.2.4-8
-  tcl-8.4.15-1	(for the Tcl bindings only)
+  libreadline6-5.2.7-9
+  tcl-8.4.16-1	(for the Tcl bindings only)
 
 Build requirements:
 (besides corresponding devel packages)
   cygwin-1.5.24-2
   autoconf2.5-2.61-1
   binutils-20060817-1
-  cygport-0.3.5-1
+  cygport-0.3.7-1
   gawk-3.1.5-4
   gcc-core-3.4.4-3
   libtool1.5-1.5.23a-2
@@ -30,18 +30,18 @@ Canonical homepage:
 -------------------------------------------
 
 Build instructions:
-  unpack sqlite3-3.3.17-1-src.tar.bz2
+  unpack sqlite3-3.5.2-1-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./sqlite3-3.3.17-1.cygport all
+  cygport ./sqlite3-3.5.2-1.cygport all
 
 This will create:
-  /usr/src/libsqlite3-devel-3.3.17-1.tar.bz2
-  /usr/src/libsqlite3_0-3.3.17-1.tar.bz2
-  /usr/src/sqlite3-3.3.17-1-src.tar.bz2
-  /usr/src/sqlite3-3.3.17-1.tar.bz2
-  /usr/src/tcl-sqlite3-3.3.17-1.tar.bz2
+  /usr/src/libsqlite3-devel-3.5.2-1.tar.bz2
+  /usr/src/libsqlite3_0-3.5.2-1.tar.bz2
+  /usr/src/sqlite3-3.5.2-1-src.tar.bz2
+  /usr/src/sqlite3-3.5.2-1.tar.bz2
+  /usr/src/tcl-sqlite3-3.5.2-1.tar.bz2
 
 -------------------------------------------
 
@@ -50,45 +50,45 @@ Files included in the binary packages:
 (sqlite3)
   /usr/bin/lemon3.exe
   /usr/bin/sqlite3.exe
-  /usr/share/doc/Cygwin/sqlite3-3.3.17.README
-  /usr/share/doc/sqlite3-3.3.17/README
-  /usr/share/doc/sqlite3-3.3.17/html/arch.html
-  /usr/share/doc/sqlite3-3.3.17/html/arch2.gif
-  /usr/share/doc/sqlite3-3.3.17/html/autoinc.html
-  /usr/share/doc/sqlite3-3.3.17/html/c_interface.html
-  /usr/share/doc/sqlite3-3.3.17/html/capi3.html
-  /usr/share/doc/sqlite3-3.3.17/html/capi3ref.html
-  /usr/share/doc/sqlite3-3.3.17/html/changes.html
-  /usr/share/doc/sqlite3-3.3.17/html/compile.html
-  /usr/share/doc/sqlite3-3.3.17/html/conflict.html
-  /usr/share/doc/sqlite3-3.3.17/html/copyright-release.html
-  /usr/share/doc/sqlite3-3.3.17/html/copyright-release.pdf
-  /usr/share/doc/sqlite3-3.3.17/html/copyright.html
-  /usr/share/doc/sqlite3-3.3.17/html/datatype3.html
-  /usr/share/doc/sqlite3-3.3.17/html/datatypes.html
-  /usr/share/doc/sqlite3-3.3.17/html/docs.html
-  /usr/share/doc/sqlite3-3.3.17/html/download.html
-  /usr/share/doc/sqlite3-3.3.17/html/faq.html
-  /usr/share/doc/sqlite3-3.3.17/html/fileformat.html
-  /usr/share/doc/sqlite3-3.3.17/html/formatchng.html
-  /usr/share/doc/sqlite3-3.3.17/html/index.html
-  /usr/share/doc/sqlite3-3.3.17/html/lang.html
-  /usr/share/doc/sqlite3-3.3.17/html/lemon.html
-  /usr/share/doc/sqlite3-3.3.17/html/lockingv3.html
-  /usr/share/doc/sqlite3-3.3.17/html/mingw.html
-  /usr/share/doc/sqlite3-3.3.17/html/nulls.html
-  /usr/share/doc/sqlite3-3.3.17/html/oldnews.html
-  /usr/share/doc/sqlite3-3.3.17/html/omitted.html
-  /usr/share/doc/sqlite3-3.3.17/html/opcode.html
-  /usr/share/doc/sqlite3-3.3.17/html/pragma.html
-  /usr/share/doc/sqlite3-3.3.17/html/quickstart.html
-  /usr/share/doc/sqlite3-3.3.17/html/speed.html
-  /usr/share/doc/sqlite3-3.3.17/html/sqlite.gif
-  /usr/share/doc/sqlite3-3.3.17/html/sqlite.html
-  /usr/share/doc/sqlite3-3.3.17/html/support.html
-  /usr/share/doc/sqlite3-3.3.17/html/tclsqlite.html
-  /usr/share/doc/sqlite3-3.3.17/html/vdbe.html
-  /usr/share/doc/sqlite3-3.3.17/html/version3.html
+  /usr/share/doc/Cygwin/sqlite3-3.5.2.README
+  /usr/share/doc/sqlite3-3.5.2/README
+  /usr/share/doc/sqlite3-3.5.2/html/arch.html
+  /usr/share/doc/sqlite3-3.5.2/html/arch2.gif
+  /usr/share/doc/sqlite3-3.5.2/html/autoinc.html
+  /usr/share/doc/sqlite3-3.5.2/html/c_interface.html
+  /usr/share/doc/sqlite3-3.5.2/html/capi3.html
+  /usr/share/doc/sqlite3-3.5.2/html/capi3ref.html
+  /usr/share/doc/sqlite3-3.5.2/html/changes.html
+  /usr/share/doc/sqlite3-3.5.2/html/compile.html
+  /usr/share/doc/sqlite3-3.5.2/html/conflict.html
+  /usr/share/doc/sqlite3-3.5.2/html/copyright-release.html
+  /usr/share/doc/sqlite3-3.5.2/html/copyright-release.pdf
+  /usr/share/doc/sqlite3-3.5.2/html/copyright.html
+  /usr/share/doc/sqlite3-3.5.2/html/datatype3.html
+  /usr/share/doc/sqlite3-3.5.2/html/datatypes.html
+  /usr/share/doc/sqlite3-3.5.2/html/docs.html
+  /usr/share/doc/sqlite3-3.5.2/html/download.html
+  /usr/share/doc/sqlite3-3.5.2/html/faq.html
+  /usr/share/doc/sqlite3-3.5.2/html/fileformat.html
+  /usr/share/doc/sqlite3-3.5.2/html/formatchng.html
+  /usr/share/doc/sqlite3-3.5.2/html/index.html
+  /usr/share/doc/sqlite3-3.5.2/html/lang.html
+  /usr/share/doc/sqlite3-3.5.2/html/lemon.html
+  /usr/share/doc/sqlite3-3.5.2/html/lockingv3.html
+  /usr/share/doc/sqlite3-3.5.2/html/mingw.html
+  /usr/share/doc/sqlite3-3.5.2/html/nulls.html
+  /usr/share/doc/sqlite3-3.5.2/html/oldnews.html
+  /usr/share/doc/sqlite3-3.5.2/html/omitted.html
+  /usr/share/doc/sqlite3-3.5.2/html/opcode.html
+  /usr/share/doc/sqlite3-3.5.2/html/pragma.html
+  /usr/share/doc/sqlite3-3.5.2/html/quickstart.html
+  /usr/share/doc/sqlite3-3.5.2/html/speed.html
+  /usr/share/doc/sqlite3-3.5.2/html/sqlite.gif
+  /usr/share/doc/sqlite3-3.5.2/html/sqlite.html
+  /usr/share/doc/sqlite3-3.5.2/html/support.html
+  /usr/share/doc/sqlite3-3.5.2/html/tclsqlite.html
+  /usr/share/doc/sqlite3-3.5.2/html/vdbe.html
+  /usr/share/doc/sqlite3-3.5.2/html/version3.html
   /usr/share/man/man1/sqlite3.1.gz
 
 (libsqlite3_0)
@@ -96,18 +96,22 @@ Files included in the binary packages:
 
 (libsqlite3-devel)
   /usr/include/sqlite3.h
+  /usr/include/sqlite3ext.h
   /usr/lib/libsqlite3.a
   /usr/lib/libsqlite3.dll.a
   /usr/lib/libsqlite3.la
   /usr/lib/pkgconfig/sqlite3.pc
 
 (tcl-sqlite3)
-  /usr/lib/sqlite3/cygtclsqlite3.dll
-  /usr/lib/sqlite3/pkgIndex.tcl
+  /usr/lib/tcl8.4/sqlite3/cygtclsqlite3.dll
+  /usr/lib/tcl8.4/sqlite3/pkgIndex.tcl
 
 ------------------
 
 Port Notes:
+
+----- version 3.5.2-1 -----
+Version bump.
 
 ----- version 3.3.17-1 -----
 Version bump.
