@@ -1,0 +1,39 @@
+inherit tcl
+
+ORIG_PN="sqlite"
+
+DESCRIPTION="SQLite database library"
+HOMEPAGE="http://www.sqlite.org/"
+SRC_URI="http://www.sqlite.org/${ORIG_PN}-${PV}.tar.gz"
+
+PKG_NAMES="${PN} lib${PN}_0 lib${PN}-devel tcl-${PN}"
+PKG_HINTS='setup runtime devel tcl'
+PKG_CONTENTS[0]='usr/bin/*.exe usr/share/'
+PKG_CONTENTS[1]='usr/bin/*.dll'
+PKG_CONTENTS[2]='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
+PKG_CONTENTS[3]="${TCL_LIBDIR#/}"
+
+NO_AUTOHEADER=1
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+
+	cd ${B}
+	cygconf \
+		--disable-utf8 \
+		--enable-incore-db 	--enable-tempdb-in-ram \
+		--enable-load-extension
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	newbin lemon.exe lemon3.exe
+	doman ${S}/sqlite3.1
+
+	docinto html
+	dodoc ${B}/doc/* ${S}/doc/lemon.html
+}
