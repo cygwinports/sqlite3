@@ -1,4 +1,4 @@
-category: Database Libs
+category: Database
 requires: cygwin
 external-source: sqlite3
 sdesc: "An embeddable SQL database engine (3.x runtime)"

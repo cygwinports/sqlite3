@@ -1,0 +1,29 @@
+--- origsrc/sqlite-3.6.3/src/os_win.c	2008-09-10 10:15:54.000000000 -0500
++++ src/sqlite-3.6.3/src/os_win.c	2008-09-26 03:05:31.947521000 -0500
+@@ -1462,7 +1462,7 @@
+ static void winDlError(sqlite3_vfs *pVfs, int nBuf, char *zBufOut){
+   getLastErrorMsg(nBuf, zBufOut);
+ }
+-void *winDlSym(sqlite3_vfs *pVfs, void *pHandle, const char *zSymbol){
++static void *winDlSym(sqlite3_vfs *pVfs, void *pHandle, const char *zSymbol){
+ #if SQLITE_OS_WINCE
+   /* The GetProcAddressA() routine is only available on wince. */
+   return GetProcAddressA((HANDLE)pHandle, zSymbol);
+@@ -1472,7 +1472,7 @@
+   return GetProcAddress((HANDLE)pHandle, zSymbol);
+ #endif
+ }
+-void winDlClose(sqlite3_vfs *pVfs, void *pHandle){
++static void winDlClose(sqlite3_vfs *pVfs, void *pHandle){
+   FreeLibrary((HANDLE)pHandle);
+ }
+ #else /* if SQLITE_OMIT_LOAD_EXTENSION is defined: */
+@@ -1535,7 +1535,7 @@
+ ** current time and date as a Julian Day number into *prNow and
+ ** return 0.  Return 1 if the time and date cannot be found.
+ */
+-int winCurrentTime(sqlite3_vfs *pVfs, double *prNow){
++static int winCurrentTime(sqlite3_vfs *pVfs, double *prNow){
+   FILETIME ft;
+   /* FILETIME structure is a 64-bit value representing the number of 
+      100-nanosecond intervals since January 1, 1601 (= JD 2305813.5). 

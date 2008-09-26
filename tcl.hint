@@ -1,4 +1,4 @@
-category: Database Interpreters
+category: Database Tcl
 requires: cygwin libsqlite3_0 tcl
 external-source: sqlite3
 sdesc: "An embeddable SQL database engine (3.x Tcl interface)"
