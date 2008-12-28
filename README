@@ -9,14 +9,14 @@ use the SQLite library.
 
 Runtime requirements:
   cygwin-1.5.25-15
-  libreadline6-5.2.12-10
-  tcl-8.4.18-1	(for the Tcl bindings only)
+  libreadline6-5.2.13-11
+  tcl-8.4.19-2	(for the Tcl bindings only)
 
 Build requirements:
 (besides corresponding devel packages)
-  autoconf2.5-2.62-1
+  autoconf2.5-2.63-1
   binutils-20080624-2
-  cygport-0.4.0-1
+  cygport-0.4.3-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
   libtool-2.2.6a-1
@@ -29,18 +29,18 @@ Canonical homepage:
 -------------------------------------------
 
 Build instructions:
-  unpack sqlite3-3.6.3-1-src.tar.bz2
+  unpack sqlite3-3.6.7-1-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./sqlite3-3.6.3-1.cygport all
+  cygport ./sqlite3-3.6.7-1.cygport all
 
 This will create:
-  /usr/src/libsqlite3-devel-3.6.3-1.tar.bz2
-  /usr/src/libsqlite3_0-3.6.3-1.tar.bz2
-  /usr/src/sqlite3-3.6.3-1-src.tar.bz2
-  /usr/src/sqlite3-3.6.3-1.tar.bz2
-  /usr/src/tcl-sqlite3-3.6.3-1.tar.bz2
+  /usr/src/libsqlite3-devel-3.6.7-1.tar.bz2
+  /usr/src/libsqlite3_0-3.6.7-1.tar.bz2
+  /usr/src/sqlite3-3.6.7-1-src.tar.bz2
+  /usr/src/sqlite3-3.6.7-1.tar.bz2
+  /usr/src/tcl-sqlite3-3.6.7-1.tar.bz2
 
 -------------------------------------------
 
@@ -48,7 +48,7 @@ Files included in the binary packages:
 
 (sqlite3)
   /usr/bin/sqlite3.exe
-  /usr/share/doc/sqlite3-3.6.3/README
+  /usr/share/doc/sqlite3-3.6.7/README
   /usr/share/man/man1/sqlite3.1.gz
 
 (libsqlite3_0)
@@ -74,6 +74,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 3.6.7-1 -----
+Version bump.
 
 ----- version 3.6.3-1 -----
 Version bump.

@@ -1,24 +1,24 @@
---- origsrc/sqlite-3.6.3/src/os_win.c	2008-09-10 10:15:54.000000000 -0500
-+++ src/sqlite-3.6.3/src/os_win.c	2008-09-26 03:05:31.947521000 -0500
-@@ -1462,7 +1462,7 @@
- static void winDlError(sqlite3_vfs *pVfs, int nBuf, char *zBufOut){
+--- origsrc/sqlite-3.6.7/src/os_win.c	2008-12-27 23:10:32.425633800 -0600
++++ src/sqlite-3.6.7/src/os_win.c	2008-12-27 23:06:49.847508800 -0600
+@@ -1545,7 +1545,7 @@
+   UNUSED_PARAMETER(pVfs);
    getLastErrorMsg(nBuf, zBufOut);
  }
--void *winDlSym(sqlite3_vfs *pVfs, void *pHandle, const char *zSymbol){
-+static void *winDlSym(sqlite3_vfs *pVfs, void *pHandle, const char *zSymbol){
+-void (*winDlSym(sqlite3_vfs *pVfs, void *pHandle, const char *zSymbol))(void){
++static void (*winDlSym(sqlite3_vfs *pVfs, void *pHandle, const char *zSymbol))(void){
+   UNUSED_PARAMETER(pVfs);
  #if SQLITE_OS_WINCE
    /* The GetProcAddressA() routine is only available on wince. */
-   return GetProcAddressA((HANDLE)pHandle, zSymbol);
-@@ -1472,7 +1472,7 @@
-   return GetProcAddress((HANDLE)pHandle, zSymbol);
+@@ -1556,7 +1556,7 @@
+   return (void(*)(void))GetProcAddress((HANDLE)pHandle, zSymbol);
  #endif
  }
 -void winDlClose(sqlite3_vfs *pVfs, void *pHandle){
 +static void winDlClose(sqlite3_vfs *pVfs, void *pHandle){
+   UNUSED_PARAMETER(pVfs);
    FreeLibrary((HANDLE)pHandle);
  }
- #else /* if SQLITE_OMIT_LOAD_EXTENSION is defined: */
-@@ -1535,7 +1535,7 @@
+@@ -1627,7 +1627,7 @@
  ** current time and date as a Julian Day number into *prNow and
  ** return 0.  Return 1 if the time and date cannot be found.
  */

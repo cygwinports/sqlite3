@@ -7,12 +7,10 @@ HOMEPAGE="http://www.sqlite.org/"
 SRC_URI="http://www.sqlite.org/${ORIG_PN}-${PV}.tar.gz"
 
 PATCH_URI="
-	http://patch-tracking.debian.net/patch/series/dl/${PN}/3.5.9-4/01-sqlite3.pc-version-to-release.patch
 	3.6.3-no-undefined.patch
 	3.6.3-tcl-install.patch
 	3.6.3-lemon-snprintf.patch
-	3.6.3-symbols-os_win.patch
-	3.6.3-sqlite_patchset_5735.diff
+	3.6.7-symbols-os_win.patch
 "
 
 PKG_NAMES="${PN} lib${PN}_0 lib${PN}-devel tcl-${PN} lemon"
