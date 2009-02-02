@@ -29,18 +29,18 @@ Canonical homepage:
 -------------------------------------------
 
 Build instructions:
-  unpack sqlite3-3.6.7-1-src.tar.bz2
+  unpack sqlite3-3.6.10-1-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./sqlite3-3.6.7-1.cygport all
+  cygport ./sqlite3-3.6.10-1.cygport all
 
 This will create:
-  /usr/src/libsqlite3-devel-3.6.7-1.tar.bz2
-  /usr/src/libsqlite3_0-3.6.7-1.tar.bz2
-  /usr/src/sqlite3-3.6.7-1-src.tar.bz2
-  /usr/src/sqlite3-3.6.7-1.tar.bz2
-  /usr/src/tcl-sqlite3-3.6.7-1.tar.bz2
+  /usr/src/libsqlite3-devel-3.6.10-1.tar.bz2
+  /usr/src/libsqlite3_0-3.6.10-1.tar.bz2
+  /usr/src/sqlite3-3.6.10-1-src.tar.bz2
+  /usr/src/sqlite3-3.6.10-1.tar.bz2
+  /usr/src/tcl-sqlite3-3.6.10-1.tar.bz2
 
 -------------------------------------------
 
@@ -48,7 +48,7 @@ Files included in the binary packages:
 
 (sqlite3)
   /usr/bin/sqlite3.exe
-  /usr/share/doc/sqlite3-3.6.7/README
+  /usr/share/doc/sqlite3-3.6.10/README
   /usr/share/man/man1/sqlite3.1.gz
 
 (libsqlite3_0)
@@ -74,6 +74,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 3.6.10-1 -----
+Version bump.
 
 ----- version 3.6.7-1 -----
 Version bump.

@@ -7,19 +7,18 @@ HOMEPAGE="http://www.sqlite.org/"
 SRC_URI="http://www.sqlite.org/${ORIG_PN}-${PV}.tar.gz"
 
 PATCH_URI="
-	3.6.3-no-undefined.patch
+	3.6.10-no-undefined.patch
 	3.6.3-tcl-install.patch
 	3.6.3-lemon-snprintf.patch
 	3.6.7-symbols-os_win.patch
 "
 
 PKG_NAMES="${PN} lib${PN}_0 lib${PN}-devel tcl-${PN} lemon"
-PKG_HINTS='setup runtime devel tcl lemon'
-PKG_CONTENTS[0]='usr/bin/sqlite3.exe usr/share/doc/ usr/share/man/man1/sqlite3.*'
-PKG_CONTENTS[1]='usr/bin/*.dll'
-PKG_CONTENTS[2]='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
-PKG_CONTENTS[3]="${TCL_LIBDIR#/}"
-PKG_CONTENTS[4]="usr/bin/lemon.exe usr/share/lemon/ usr/share/man/man1/lemon.*"
+sqlite3_CONTENTS='usr/bin/sqlite3.exe usr/share/doc/ usr/share/man/man1/sqlite3.*'
+libsqlite3_0_CONTENTS='usr/bin/cygsqlite3-0.dll'
+libsqlite3_devel_CONTENTS='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
+tcl_sqlite3_CONTENTS="${TCL_LIBDIR#/}"
+lemon_CONTENTS="usr/bin/lemon.exe usr/share/lemon/ usr/share/man/man1/lemon.*"
 
 NO_AUTOHEADER=1
 CPPFLAGS+=" -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA"
