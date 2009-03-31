@@ -1,5 +1,5 @@
 category: Devel
-requires: cygwin
+requires: cygwin libgcc1
 external-source: sqlite3
 sdesc: "LALR parser generator for C/C++"
 ldesc: "Lemon is an LALR(1) parser generator for C or C++. It does the 

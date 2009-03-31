@@ -7,8 +7,8 @@ HOMEPAGE="http://www.sqlite.org/"
 SRC_URI="http://www.sqlite.org/${ORIG_PN}-${PV}.tar.gz"
 
 PATCH_URI="
-	3.6.10-no-undefined.patch
-	3.6.3-tcl-install.patch
+	3.6.11-no-undefined.patch
+	3.6.11-tcl-pkgIndex.patch
 	3.6.3-lemon-snprintf.patch
 	3.6.7-symbols-os_win.patch
 "
@@ -23,7 +23,7 @@ lemon_CONTENTS="usr/bin/lemon.exe usr/share/lemon/ usr/share/man/man1/lemon.*"
 NO_AUTOHEADER=1
 CPPFLAGS+=" -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA"
 CYGCONF_ARGS="
-	--disable-utf8
+	--enable-utf8
 	--enable-incore-db 	--enable-tempdb-in-ram
 	--enable-load-extension
 "
@@ -31,6 +31,8 @@ CYGCONF_ARGS="
 src_install() {
 	cd ${B}
 	cyginstall
+
+	rm -f ${D}${TCL_LIBDIR}/${PN}/*.a
 
 	dobin lemon.exe
 	insinto /usr/share/lemon

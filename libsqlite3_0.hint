@@ -1,5 +1,5 @@
 category: Database
-requires: cygwin
+requires: cygwin libgcc1
 external-source: sqlite3
 sdesc: "An embeddable SQL database engine (3.x runtime)"
 ldesc: "SQLite is a C library that implements an embeddable SQL 
