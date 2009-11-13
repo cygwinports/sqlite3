@@ -7,9 +7,9 @@ HOMEPAGE="http://www.sqlite.org/"
 SRC_URI="http://www.sqlite.org/${ORIG_PN}-${PV}.tar.gz"
 
 PATCH_URI="
+	http://patch-tracking.debian.net/patch/series/dl/${PN}/${PV}-1/02-lemon-snprintf.patch
 	3.6.11-no-undefined.patch
-	3.6.11-tcl-pkgIndex.patch
-	3.6.3-lemon-snprintf.patch
+	3.6.17-tcl-pkgIndex.patch
 	3.6.7-symbols-os_win.patch
 "
 
@@ -18,7 +18,7 @@ sqlite3_CONTENTS='usr/bin/sqlite3.exe usr/share/doc/ usr/share/man/man1/sqlite3.
 libsqlite3_0_CONTENTS='usr/bin/cygsqlite3-0.dll'
 libsqlite3_devel_CONTENTS='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
 tcl_sqlite3_CONTENTS="${TCL_LIBDIR#/}"
-lemon_CONTENTS="usr/bin/lemon.exe usr/share/lemon/ usr/share/man/man1/lemon.*"
+lemon_CONTENTS="usr/bin/lemon.exe usr/share/lemon/"
 
 NO_AUTOHEADER=1
 CPPFLAGS+=" -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA"
@@ -38,8 +38,8 @@ src_install() {
 	insinto /usr/share/lemon
 	doins ${S}/tool/lempar.c
 
-	doman ${S}/sqlite3.1 ${S}/debian/lemon.1
+	doman ${S}/sqlite3.1
 
-	docinto html
-	dodoc ${B}/doc/* ${S}/doc/lemon.html
+#	docinto html
+#	dodoc ${B}/doc/* ${S}/doc/lemon.html
 }
