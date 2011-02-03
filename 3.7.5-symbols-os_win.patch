@@ -1,6 +1,6 @@
---- origsrc/sqlite-3.7.3/src/os_win.c	2010-10-07 09:48:42.000000000 -0500
-+++ src/sqlite-3.7.3/src/os_win.c	2010-11-04 15:17:57.622443300 -0500
-@@ -2562,7 +2562,7 @@ static void winDlError(sqlite3_vfs *pVfs
+--- origsrc/sqlite-3.7.5/src/sqlite3.c
++++ src/sqlite-3.7.5/src/sqlite3.c
+@@ -32181,7 +32181,7 @@ static void winDlError(sqlite3_vfs *pVfs
    UNUSED_PARAMETER(pVfs);
    getLastErrorMsg(nBuf, zBufOut);
  }
@@ -9,7 +9,7 @@
    UNUSED_PARAMETER(pVfs);
  #if SQLITE_OS_WINCE
    /* The GetProcAddressA() routine is only available on wince. */
-@@ -2573,7 +2573,7 @@ void (*winDlSym(sqlite3_vfs *pVfs, void
+@@ -32192,7 +32192,7 @@ void (*winDlSym(sqlite3_vfs *pVfs, void
    return (void(*)(void))GetProcAddress((HANDLE)pHandle, zSymbol);
  #endif
  }
@@ -18,7 +18,7 @@
    UNUSED_PARAMETER(pVfs);
    FreeLibrary((HANDLE)pHandle);
  }
-@@ -2691,7 +2691,7 @@ static int winCurrentTimeInt64(sqlite3_v
+@@ -32310,7 +32310,7 @@ static int winCurrentTimeInt64(sqlite3_v
  ** current time and date as a Julian Day number into *prNow and
  ** return 0.  Return 1 if the time and date cannot be found.
  */
