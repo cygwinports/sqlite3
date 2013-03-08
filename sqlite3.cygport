@@ -1,8 +1,10 @@
 inherit tcl
 
-ORIG_PN="sqlite-autoconf"
-ORIG_PV=$((PV[1] * 1000000 + PV[2] * 10000 + PV[3] * 100 + PV[4]))
+orig_pv=$((PV[1] * 1000000 + PV[2] * 10000 + PV[3] * 100 + PV[4]))
 
+NAME="sqlite3"
+VERSION=3.7.15.2
+RELEASE=1
 CATEGORY="Database"
 SUMMARY="An embeddable SQL database engine"
 SUMMARY="SQLite is a C library that implements an embeddable SQL database
@@ -11,16 +13,16 @@ access without running a separate RDBMS process. The distribution comes with
 a standalone command-line access program that can be used to administer an
 SQLite database and which serves as an example of how to use the SQLite library."
 HOMEPAGE="http://www.sqlite.org/"
-SRC_URI="http://www.sqlite.org/${ORIG_PN}-${ORIG_PV}.tar.gz"
-SRC_DIR=${ORIG_PN}-${ORIG_PV}
-
-DISTCLEANFILES="sqlite3.pc tea/aclocal.m4"
+SRC_URI="http://www.sqlite.org/sqlite-autoconf-${orig_pv}.tar.gz"
+SRC_DIR="sqlite-autoconf-${orig_pv}"
 
 PKG_NAMES="${PN} lib${PN}_0 lib${PN}-devel tcl-${PN}"
 sqlite3_CONTENTS='usr/bin/sqlite3.exe usr/share/doc/ usr/share/man/man1/'
 libsqlite3_0_CONTENTS='usr/bin/cygsqlite3-0.dll'
 libsqlite3_devel_CONTENTS='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
 tcl_sqlite3_CONTENTS="usr/lib/sqlite${PV}/ usr/share/man/mann/"
+
+DISTCLEANFILES="sqlite3.pc tea/aclocal.m4"
 
 NO_AUTOHEADER=1
 CPPFLAGS+=" -DSQLITE_OS_UNIX -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA \
