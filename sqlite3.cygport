@@ -3,7 +3,7 @@ inherit tcl
 orig_pv=$((PV[1] * 1000000 + PV[2] * 10000 + PV[3] * 100 + PV[4]))
 
 NAME="sqlite3"
-VERSION=3.7.15.2
+VERSION=3.7.16.2
 RELEASE=1
 CATEGORY="Database"
 SUMMARY="An embeddable SQL database engine"
@@ -13,7 +13,7 @@ access without running a separate RDBMS process. The distribution comes with
 a standalone command-line access program that can be used to administer an
 SQLite database and which serves as an example of how to use the SQLite library."
 HOMEPAGE="http://www.sqlite.org/"
-SRC_URI="http://www.sqlite.org/sqlite-autoconf-${orig_pv}.tar.gz"
+SRC_URI="http://www.sqlite.org/2013/sqlite-autoconf-${orig_pv}.tar.gz"
 SRC_DIR="sqlite-autoconf-${orig_pv}"
 
 PKG_NAMES="${PN} lib${PN}_0 lib${PN}-devel tcl-${PN}"
@@ -27,6 +27,8 @@ DISTCLEANFILES="sqlite3.pc tea/aclocal.m4"
 NO_AUTOHEADER=1
 CPPFLAGS+=" -DSQLITE_OS_UNIX -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA \
     -DSQLITE_ENABLE_FTS_PARENTHESIS -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS4"
+
+WANT_AUTOMAKE=1.13
 
 src_compile() {
 	cd ${S}
