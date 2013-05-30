@@ -3,7 +3,7 @@ inherit tcl
 orig_pv=$((PV[1] * 1000000 + PV[2] * 10000 + PV[3] * 100 + PV[4]))
 
 NAME="sqlite3"
-VERSION=3.7.16.2
+VERSION=3.7.17
 RELEASE=1
 CATEGORY="Database"
 SUMMARY="An embeddable SQL database engine"
