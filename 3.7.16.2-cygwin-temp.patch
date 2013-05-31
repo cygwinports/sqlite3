@@ -1,0 +1,104 @@
+--- origsrc/sqlite-autoconf-3071602/sqlite3.c	2013-04-12 06:21:42.000000000 -0600
++++ src/sqlite-autoconf-3071602/sqlite3.c	2013-04-17 14:48:59.709681600 -0600
+@@ -33659,6 +33659,81 @@ static void *convertUtf8Filename(const c
+   return zConverted;
+ }
+ 
++#if defined(__CYGWIN__)
++#include <sys/stat.h>
++/*
++** A near clone of unixTempFileDir(), purely for expediency, since
++** exposing it for Cygwin builds requires excessive ifdef gymnastics.
++** Basically, it lets us have Unix-like temp path picking instead of
++** Windows native picking without building the entire library in
++** Unix mode, since that has bad side effects.
++*/
++static const char *cygwinTempFileDir(void){
++  static const char *azDirs[] = {
++     0,
++     0,
++     "/var/tmp",
++     "/usr/tmp",
++     "/tmp",
++     0        /* List terminator */
++  };
++  unsigned int i;
++  struct stat buf;
++  const char *zDir = 0;
++
++  azDirs[0] = sqlite3_temp_directory;
++  if( !azDirs[1] ) azDirs[1] = getenv("TMPDIR");
++  for(i=0; i<sizeof(azDirs)/sizeof(azDirs[0]); zDir=azDirs[i++]){
++    if( zDir==0 ) continue;
++    if( stat(zDir, &buf) ) continue;
++    if( !S_ISDIR(buf.st_mode) ) continue;
++    if( access(zDir, 07) ) continue;
++    break;
++  }
++  return zDir;
++}
++
++/*
++** Ditto above, but for unixGetTempname()
++*/
++static int cygwinGetTempname(int nBuf, char *zBuf){
++  static const unsigned char zChars[] =
++    "abcdefghijklmnopqrstuvwxyz"
++    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
++    "0123456789";
++  unsigned int i, j;
++  const char *zDir;
++
++  /* It's odd to simulate an io-error here, but really this is just
++  ** using the io-error infrastructure to test that SQLite handles this
++  ** function failing. 
++  */
++  SimulateIOError( return SQLITE_IOERR );
++
++  zDir = cygwinTempFileDir();
++  if( zDir==0 ) zDir = ".";
++
++  /* Check that the output buffer is large enough for the temporary file 
++  ** name. If it is not, return SQLITE_ERROR.
++  */
++  if( (strlen(zDir) + strlen(SQLITE_TEMP_FILE_PREFIX) + 18) >= (size_t)nBuf ){
++    return SQLITE_ERROR;
++  }
++
++  do{
++    sqlite3_snprintf(nBuf-18, zBuf, "%s/"SQLITE_TEMP_FILE_PREFIX, zDir);
++    j = (int)strlen(zBuf);
++    sqlite3_randomness(15, &zBuf[j]);
++    for(i=0; i<15; i++, j++){
++      zBuf[j] = (char)zChars[ ((unsigned char)zBuf[j])%(sizeof(zChars)-1) ];
++    }
++    zBuf[j] = 0;
++    zBuf[j+1] = 0;
++  }while( access(zBuf,0)==0 );
++  return SQLITE_OK;
++}
++#endif
++
+ /*
+ ** Create a temporary file name in zBuf.  zBuf must be big enough to
+ ** hold at pVfs->mxPathname characters.
+@@ -33685,6 +33760,11 @@ static int getTempname(int nBuf, char *z
+   }
+ #if !SQLITE_OS_WINRT
+   else if( isNT() ){
++#if defined(__CYGWIN__)
++#warning SERIOUSLY UGLY CYGWIN-SPECIFIC HACK PATCHED IN.
++#warning DIKE THIS OUT AS SOON AS PRACTICAL.
++    cygwinGetTempname(MAX_PATH-30, zTempPath);
++#else
+     char *zMulti;
+     WCHAR zWidePath[MAX_PATH];
+     osGetTempPathW(MAX_PATH-30, zWidePath);
+@@ -33695,6 +33775,7 @@ static int getTempname(int nBuf, char *z
+     }else{
+       return SQLITE_IOERR_NOMEM;
+     }
++#endif
+   }
+ #ifdef SQLITE_WIN32_HAS_ANSI
+   else{

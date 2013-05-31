@@ -15,18 +15,23 @@ SQLite database and which serves as an example of how to use the SQLite library.
 HOMEPAGE="http://www.sqlite.org/"
 SRC_URI="http://www.sqlite.org/2013/sqlite-autoconf-${orig_pv}.tar.gz"
 SRC_DIR="sqlite-autoconf-${orig_pv}"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/sqlite.git/plain/sqlite-3.7.16-man-missing-options.patch
+	3.7.16.2-cygwin-temp.patch
+"
 
-PKG_NAMES="${PN} lib${PN}_0 lib${PN}-devel tcl-${PN}"
+PKG_NAMES="${NAME} lib${NAME}_0 lib${NAME}-devel tcl-${NAME}"
 sqlite3_CONTENTS='usr/bin/sqlite3.exe usr/share/doc/ usr/share/man/man1/'
 libsqlite3_0_CONTENTS='usr/bin/cygsqlite3-0.dll'
 libsqlite3_devel_CONTENTS='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
-tcl_sqlite3_CONTENTS="usr/lib/sqlite${PV}/ usr/share/man/mann/"
+tcl_sqlite3_CONTENTS="usr/lib/sqlite${VERSION}/ usr/share/man/mann/"
 
 DISTCLEANFILES="sqlite3.pc tea/aclocal.m4"
 
 NO_AUTOHEADER=1
-CPPFLAGS+=" -DSQLITE_OS_UNIX -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA \
-    -DSQLITE_ENABLE_FTS_PARENTHESIS -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS4"
+CPPFLAGS+=" -DSQLITE_TEMP_STORE=2 -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA \
+    -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS4 \
+    -DSQLITE_SECURE_DELETE -DSQLITE_ENABLE_UNLOCK_NOTIFY"
 
 WANT_AUTOMAKE=1.13
 
